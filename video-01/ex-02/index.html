@@ -1,0 +1,75 @@
+<!-- Calculo de medias dos alunos -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      font: 80% verdana;
+    }
+  </style>
+</head>
+<body>
+  <h4>Notas de cada avaliação</h4>
+  <form name="calculo">
+    <label>N1</label>
+    <input type="text" name="n1" size="2" value="0" onblur="calcular()">
+    <label>N2</label>
+    <input type="text" name="n2" size="2" value="0" onblur="calcular()">
+    <label>N3</label>
+    <input type="text" name="n3" size="2" value="0" onblur="calcular()">
+    <label>N4</label>
+    <input type="text" name="n4" size="2" value="0" onblur="calcular()">
+    <label>A média Final é:</label>
+    <input type="text" name="md" disabled='true' size="2">
+  </form>
+
+  <script>
+    let valor, p1, p2, p3, p4, media;
+
+    const calcular1 = () => {
+      p1 = parseFloat(document.calculo.n1.value);
+      p2 = parseFloat(document.calculo.n2.value);
+      p3 = parseFloat(document.calculo.n3.value);
+      p4 = parseFloat(document.calculo.n4.value);
+
+      media = (p1 + p2 + p3 + p4) / 4;
+      document.calculo.md.value = media;
+      
+    }
+
+    const calcular2 = () => {
+      p1 = parseFloat(document.calculo.n1.value);
+      p2 = parseFloat(document.calculo.n2.value);
+      p3 = parseFloat(document.calculo.n3.value);
+      p4 = parseFloat(document.calculo.n4.value);
+
+      for(i = 0; i < 4; i++) {
+        valor = parseFloat(document.forms[0].elements[i].value);
+        if(isNaN(valor)) {
+          eval('p' + (i+1) + ' = 0;');
+        }
+      }
+      media = (p1 + p2 + p3 + p4) / 4;
+      document.calculo.md.value = media;
+      
+    }
+
+    const filterItem = item => item.value && item.name !== 'md';
+    const parseItem = item => parseFloat(item.value);
+    const calcItem = (prev, curr) => prev + curr;
+
+    const calcular3 = () => {
+      media = Array.from(document.forms[0])
+        .filter(filterItem)
+        .map(parseItem)
+        .reduce(calcItem, 0) / 4;
+
+      document.calculo.md.value = media;
+    };
+  </script>
+</body>
+</html>
