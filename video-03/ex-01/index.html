@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+
+    const pessoas = [
+      { name: 'alexandre', age: 23},
+      { name: 'vitor', age: 21},
+      { name: 'rafael', age: 19},
+      { name: 'falipe', age: 24},
+    ];
+  function pessoasTable() {
+    document.write('<table>');
+        document.write('<tr><td>Nome</td><td>Idade</td></tr>');
+        pessoas.map(pessoa => document.write(
+          '<tr><td>' + pessoa.name + '</td>' +
+          '<td>' + pessoa.age + '</td></tr>'
+          )
+        )
+    document.write('</table>');
+  }
+
+pessoasTable();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

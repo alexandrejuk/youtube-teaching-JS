@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  function dadosPessoa(nome, idade, sexo, altura, cidade, estado) {
+      document.write('Nome: ' + nome + '<br/>');
+      document.write('Idade: ' + idade + '<br/>');
+      document.write('Sexo: ' + sexo + '<br/>');
+      document.write('Altura: ' + altura + '<br/>');
+      document.write('Cidade: ' + cidade + '<br/>');
+      document.write('Estado: ' + estado + '<br/>');
+
+      const arg_num = arguments.length;
+      document.write('O total de Argumentos e: ');
+      document.write(arg_num);
+    }
+
+dadosPessoa('Alexandre', 24, 'M', 1.75, 'São Paulo', 'SP');
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
